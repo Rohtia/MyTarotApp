@@ -19,6 +19,7 @@ var futureImg = document.getElementById("futureCardImg");
 
 function shuffle() {
 	//reprint the question asked
+    console.log(question);
 	printQ.textContent = question;
 	//randomly select cards
 	getCard(cardsDrawn);
@@ -62,7 +63,7 @@ function getCardDetails(card1, card2, card3) {
 
 function postImages(card, spot) {
 	var rightCard = card.name_short;
-	rightCard = rightCard + ".jpg";
+	rightCard = "img/" + rightCard + ".jpg";
 	spot.src = rightCard;
 }
 
