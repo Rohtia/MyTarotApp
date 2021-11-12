@@ -82,30 +82,43 @@ select {
 ----------- PAGE STYLING -------------
 ------------------------------------*/
 
-body {
-    padding: 3rem;
-}
-main {
-    width: 80%;
-    max-width: 400px;
-    text-align: center;
-    margin: auto;
-    
 
-}
 
 h1 {
     font-weight: bold;
 }
 
+.question {
+	margin: 1rem, 0;
+}
+
 .card-reading {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 3rem;
-    
+    grid-gap: 0.5rem;
     text-align: center;
+		margin: 2rem 0;
+}
+
+.cardImg {
+	height: 200px;
+	width: 90%;
+	background-color: navy;
+	align-items: center;
+	margin: .5rem;
+	padding: .3rem;
 }
 
 .meaning {
     text-align: left;
+}
+
+.reading {
+	padding: 0.5rem 0;
+}
+
+.cardName {
+	font-size: 1.1rem;
+	font-weight: bold;
+	font-style: italic;
 }
