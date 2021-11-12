@@ -89,8 +89,13 @@ body {
 
 main {
 	background-color: #94c0d1;
-	height: 100vh;
+	/* width: 80%; */
+	min-width: 350px;
+	max-width: 400px;
+	/* height: 100vh; */
 	text-align: center;
+	margin: auto;
+	padding: 1rem;
 	color:#463908;
 }
 
