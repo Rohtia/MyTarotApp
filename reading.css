@@ -110,15 +110,44 @@ h1 {
 }
 
 .meaning {
-    text-align: left;
+  text-align: left;
+    
 }
 
 .reading {
 	padding: 0.5rem 0;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
 }
 
 .cardName {
 	font-size: 1.1rem;
 	font-weight: bold;
 	font-style: italic;
+  grid-column-start: 1; 
+}
+
+.read {
+  grid-column-start: 1;
+  column-span: 2;
+}
+.moreInfo {
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+
+.arrow {
+  
+  width: 1px;
+  height: 0;
+  border-top: 30px solid #F0D675;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+}
+
+.long {
+  visibility: none;
+  grid-column-start: 1;
+  border: 3px solid #f0d675;
+  column-span: 2;
 }

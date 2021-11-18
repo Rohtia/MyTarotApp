@@ -16,9 +16,23 @@ var pastImg = document.getElementById("pastCardImg");
 var presentImg = document.getElementById("presentCardImg");
 var futureImg = document.getElementById("futureCardImg");
 
+var pastInfo = document.getElementById("pastInfo");
+var presentInfo = document.getElementById("presentInfo");
+var futureInfo = document.getElementById("futureInfo");
+var pastUp = document.getElementById("pastUp");
+var pastRev = document.getElementById("pastRev");
+var pastDesc = document.getElementById("pastDesc");
+var presentUp = document.getElementById("presentUp");
+var presentRev = document.getElementById("presentRev");
+var presentDesc = document.getElementById("presentDesc");
+var futureUp = document.getElementById("futureUp");
+var futureRev = document.getElementById("futureRev");
+var futureDesc = document.getElementById("futureDesc");
+
 
 function shuffle() {
 	//reprint the question asked
+  console.log(question);
 	printQ.textContent = question;
 	//randomly select cards
 	getCard(cardsDrawn);
@@ -101,6 +115,37 @@ function inverted () {
   }
 }
 
+function moreInfo(card) {
+  if (card === "past") {
+    pastUp.textContent = "Meaning: " + pastCard[0].meaning_up;
+    pastRev.textContent = "Inverted meaning: " + pastCard[0].meaning_rev;
+    pastDesc.textContent = "Long description: " + pastCard[0].desc;
+    if (pastInfo.style.display == 'block') {
+      pastInfo.style.display = 'none';
+    } else {
+      pastInfo.style.display = 'block';
+    }
+    
+  } else if (card === "present") {
+    if (presentInfo.style.display == 'block') {
+      presentInfo.style.display = 'none';
+    } else {
+      presentInfo.style.display = 'block';
+    }
+    presentUp.textContent = "Meaning: " + presentCard[0].meaning_up;
+    presentRev.textContent = "Inverted meaning: " + presentCard[0].meaning_rev;
+    presentDesc.textContent = "Long description: " + presentCard[0].desc;
+  } else if (card === "future") {
+    if (futureInfo.style.display == 'block') {
+      futureInfo.style.display = 'none';
+    } else {
+      futureInfo.style.display = 'block';
+    }
+    futureUp.textContent = "Meaning: " + futureCard[0].meaning_up;
+    futureRev.textContent = "Inverted meaning: " + futureCard[0].meaning_rev;
+    futureDesc.textContent = "Long description: " + futureCard[0].desc;
+  }
+}
 
 
 /*--------------------------

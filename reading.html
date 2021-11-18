@@ -35,15 +35,44 @@
             <div class="meaning">
                 <div class="past reading"><h2>Past</h2>
 									<p id="pastName" class="cardName">name</p>
-                  <p id="pastMeaning">meaning</p>
+                  <p id="pastMeaning" class="read">meaning</p>
+
+                  <div class="moreInfo"> 
+                    <div class="arrow past" onclick="moreInfo('past')"></div>
+                  </div>
                 </div>
+                <div id="pastInfo" class="long">
+                  <p id="pastUp"></p>
+                  <p id="pastRev"></p>
+                  <p id="pastDesc"></p>
+                </div> 
+
                 <div class="present reading"><h2>Present</h2>
 									<p id="presentName" class="cardName">name</p>
-                    <p id="presentMeaning">meaning</p>
+                    <p id="presentMeaning" class="read">meaning</p>
+
+                    <div class="moreInfo">
+                      <div class="arrow present" onclick="moreInfo('present')"></div>
+                    </div>
                 </div>
+                <div id="presentInfo" class="long">
+                  <p id="presentUp"></p>
+                  <p id="presentRev"></p>
+                  <p id="presentDesc"></p>
+                </div>
+
                 <div class="future reading"><h2>Future</h2>
 									<p id="futureName" class="cardName">name</p>
-                    <p id="futureMeaning">meaning</p>
+                  <p id="futureMeaning" class="read">meaning</p>
+
+                  <div class="moreInfo">
+                    <div class="arrow future" onclick="moreInfo('future')"></div>
+                  </div> 
+                </div>
+                <div id="futureInfo" class="long">
+                  <p id="futureUp"></p>
+                  <p id="futureRev"></p>
+                  <p id="futureDesc"></p>
                 </div>
             </div>
         </main>
