@@ -93,6 +93,7 @@ h1 {
 }
 
 .card-reading {
+  border: 1px solid black;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 0.5rem;
@@ -101,10 +102,12 @@ h1 {
 }
 
 .cardImg {
-	height: 200px;
-	width: 90%;
+  border: 1px solid white;
+	height: 1fr;
+	width: 1fr;
 	background-color: navy;
 	align-items: center;
+  margin: auto;
 	margin: .5rem;
 	padding: .3rem;
 }
@@ -150,4 +153,11 @@ h1 {
   grid-column-start: 1;
   border: 3px solid #f0d675;
   column-span: 2;
+}
+
+/* @media (min-width: 500px) {
+  cardImg {
+    width: 10%;
+    height: 10%;
+  } */
 }
