@@ -3,9 +3,9 @@ var question = localStorage.input;
 var printQ = document.getElementById("question");
 var hand = [];
 var cardsDrawn = 3;
-var pastCard;
-var presentCard;
-var futureCard;
+var pastCard = [];
+var presentCard = [];
+var futureCard = [];
 var pastRead = document.getElementById("pastMeaning");
 var pastCardName = document.getElementById("pastName");
 var presentRead = document.getElementById("presentMeaning");
@@ -19,7 +19,6 @@ var futureImg = document.getElementById("futureCardImg");
 
 function shuffle() {
 	//reprint the question asked
-    console.log(question);
 	printQ.textContent = question;
 	//randomly select cards
 	getCard(cardsDrawn);
@@ -27,14 +26,14 @@ function shuffle() {
 	getCardDetails(hand[0], hand[1], hand[2]);
 
 	//post selected card images
-	postImages(pastCard, pastImg);
-	postImages(presentCard, presentImg);
-	postImages(futureCard, futureImg);
+	postImages(pastCard[0], pastImg);
+	postImages(presentCard[0], presentImg);
+	postImages(futureCard[0], futureImg);
 
 	//write information to main for user
-	postReading(pastCard, pastCardName, pastRead);
-	postReading(presentCard, presentCardName, presentRead);
-	postReading(futureCard, futureCardName, futureRead);	
+	postReading(pastCard[0], pastCard[1], pastCardName, pastRead);
+	postReading(presentCard[0], presentCard[1], presentCardName, presentRead);
+	postReading(futureCard[0], futureCard[1], futureCardName, futureRead);	
 }
 
 function getCard(cards) {
@@ -56,9 +55,12 @@ function getCard(cards) {
 }
 
 function getCardDetails(card1, card2, card3) {
-	pastCard = deckOfCards[card1];
-	presentCard = deckOfCards[card2];
-	futureCard = deckOfCards[card3];
+	pastCard.push(deckOfCards[card1]);
+	presentCard.push(deckOfCards[card2]);
+	futureCard.push(deckOfCards[card3]);
+
+  // is the card upright or inverted?
+  inverted();
 }
 
 function postImages(card, spot) {
@@ -67,15 +69,30 @@ function postImages(card, spot) {
 	spot.src = rightCard;
 }
 
-function postReading (card, name, meaning) {
+function postReading (card, isInverted, name, meaning) {
 	var cardName = card.name;
-	var cardMeaning = card.meaning_up;
-	console.log(cardName);
+  var cardMeaning;
+  if (isInverted === false) {
+  	cardMeaning = card.meaning_up;
+  } else {
+    cardMeaning = card.meaning_rev;
+    console.log(cardName + " card is reversed");
+  }
 	name.textContent = cardName;
 	meaning.textContent = cardMeaning;
 }
 
-
+function inverted () {
+  hand = [pastCard, presentCard, futureCard];
+  for (var i = 0; i < cardsDrawn; i++) {
+    var invert = Math.floor(Math.random() * 10 + 1);
+    if (invert <= 6) {
+      hand[i].push(false);
+    } else {
+      hand[i].push(true);
+    }
+  }
+}
 
 
 
