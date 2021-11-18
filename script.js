@@ -26,9 +26,9 @@ function shuffle() {
 	getCardDetails(hand[0], hand[1], hand[2]);
 
 	//post selected card images
-	postImages(pastCard[0], pastImg);
-	postImages(presentCard[0], presentImg);
-	postImages(futureCard[0], futureImg);
+	postImages(pastCard, pastImg);
+	postImages(presentCard, presentImg);
+	postImages(futureCard, futureImg);
 
 	//write information to main for user
 	postReading(pastCard[0], pastCard[1], pastCardName, pastRead);
@@ -64,9 +64,15 @@ function getCardDetails(card1, card2, card3) {
 }
 
 function postImages(card, spot) {
-	var rightCard = card.name_short;
+	var rightCard = card[0].name_short;
 	rightCard = "img/" + rightCard + ".jpg";
-	spot.src = rightCard;
+  if (card[1] === false) {
+    spot.src = rightCard;
+  } else {
+    spot.src = rightCard;
+    
+    spot.style.transform = "rotate(180deg)";
+  }
 }
 
 function postReading (card, isInverted, name, meaning) {
@@ -76,6 +82,7 @@ function postReading (card, isInverted, name, meaning) {
   	cardMeaning = card.meaning_up;
   } else {
     cardMeaning = card.meaning_rev;
+
     console.log(cardName + " card is reversed");
   }
 	name.textContent = cardName;
